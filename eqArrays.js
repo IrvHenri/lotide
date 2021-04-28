@@ -7,21 +7,17 @@ const assertEqual = function (actual, expected) {
 };
 
 // Create function that takes two arrays
-const eqArrays = function (arrOne, arrTwo) {
-  let result;
-  //go through each value and compare to other array and strictly compare
-  for (let val of arrOne) {
-    for (let valTwo of arrTwo) {
-      // returns true if there's a perfect match or false if not with strict comparison
-      if (val === valTwo) {
-        result = true;
-      } else {
-        result = false;
-      }
+const eqArrays = function(arrOne, arrTwo) {
+  if (arrOne.length !== arrTwo.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arrOne.length; i++) {
+    if (arrOne[i] === arrTwo[i]) {
+      return true;
     }
   }
-  // Returns true or false
-  return result;
+  return true;
 };
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
