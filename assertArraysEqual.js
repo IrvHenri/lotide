@@ -1,27 +1,23 @@
 const eqArrays = function(arrOne, arrTwo) {
-  let result;
-  //go through each value and compare to other array and strictly compare
-  for (let val of arrOne) {
-    for (let valTwo of arrTwo) {
-      // returns true if there's a perfect match or false if not with strict comparison
-      if (val === valTwo) {
-        result = true;
-      } else {
-        result = false;
-      }
+  if (arrOne.length !== arrTwo.length) {
+    return false;
+  }
+
+  for (let i = 0; i < arrOne.length; i++) {
+    if (arrOne[i] === arrTwo[i]) {
+      return true;
     }
   }
-  // Returns true or false
-  return result;
+  return true;
 };
 
 //will take two arrays and console.log appropriate message to console.
 
-const assertArrayEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
+const assertArrayEqual = function(arrayOne, arrayTwo) {
+  if (eqArrays(arrayOne, arrayTwo)) {
+    console.log(`✅✅✅ Assertion Passed: [${arrayOne}] === [${arrayTwo}]`);
   } else {
-    console.log(`❌❌❌ Assertion Failed: ${arr1} !== ${arr2}`);
+    console.log(`❌❌❌ Assertion Failed: [${arrayOne}] !== [${arrayTwo}]`);
   }
 };
 
