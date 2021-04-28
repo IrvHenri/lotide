@@ -12,15 +12,19 @@ let string = "Irving";
 let string2 = "Hello World";
 
 const countLetters = function(string) {
-  let lowerCaseString = string.split(" ").join("").toLowerCase();
+  let lowerCaseString = string.toLowerCase()
 
   let results = {};
+
   for (let char of lowerCaseString) {
-    if (results[char]) {
-      results[char] += 1;
-    } else {
-      results[char] = 1;
+    if(char !== ' '){
+      if (results[char]) {
+        results[char] += 1;
+      } else {
+        results[char] = 1;
+      }
     }
+    
   }
 
   return results;
