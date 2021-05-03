@@ -3,11 +3,11 @@
 
 const without = function (source, itemsToRemove) {
   let newArray = [];
-  for (let val of source) {
-    
-     if (val !== itemsToRemove.toString())  {
-       newArray.push(val)
-     } 
+  for (let i = 0; i < source.length; i++) {
+      if(!itemsToRemove.includes(source[i])){
+        newArray.push(source[i])
+      }
+     
   }
   return newArray;
 };
