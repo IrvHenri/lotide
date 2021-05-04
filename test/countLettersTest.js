@@ -1,10 +1,16 @@
-const assertEqual = require('../assertEqual')
-const countLetters = require('../countLetters')
+const assert = require("chai").assert;
 
-let string = "Irving";
-let string2 = "Hello World";
-let output = countLetters(string);
-let output2 = countLetters(string2);
+const countLetters = require("../countLetters");
 
-assertEqual(output["i"], 2);
-assertEqual(output2["l"], 3);
+describe("#countLetters", () => {
+  it("should return 2", () => {
+    let string = "Irving";
+    let output = countLetters(string);
+    assert.strictEqual(output["i"], 2);
+  }),
+    it("should return 3", () => {
+      let string2 = "Hello World";
+      let output2 = countLetters(string2);
+      assert.strictEqual(output2["l"], 3);
+    });
+});
