@@ -15,4 +15,18 @@ describe("#eqObjects", () => {
     let result = eqObjects(cd, dc);
     assert(result, false);
   });
+  it("should return false if both nested objects are unequal  ", () => {
+    const cd = { a: { y: 0, z: 1 }, b: 2 };
+
+    const dc = { a: { z: 1 }, b: 2 };
+    let result = eqObjects(cd, dc);
+    assert(result, false);
+  }),
+  it("should return true if both nested objects are equal  ", () => {
+    const cd = { a: { z: 1 }, b: 2 };
+
+    const dc = { a: { z: 1 }, b: 2 };
+    let result = eqObjects(cd, dc);
+    assert(result, true);
+  });
 });
